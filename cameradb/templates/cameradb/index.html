@@ -1,0 +1,15 @@
+{% extends 'cameradb/base.html' %}
+
+{% block content %}
+  {% if cameras %}
+      <ul>
+      {% for camera in cameras %}
+          <li><a href="{% url 'show' camera.id %}">{{ camera }}</a></li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>No cameras are available.</p>
+  {% endif %}
+
+  <a href="{% url 'new' %}">Submit my camera to the database</a>
+{% endblock %}
